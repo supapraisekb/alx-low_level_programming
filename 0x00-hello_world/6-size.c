@@ -1,21 +1,16 @@
 #include <stdio.h>
+
 /**
-*main - Entry point
-*Return: 0 (on completion)
-*/
+ *main - Entry
+ *Return: Always 0 (if successful)
+ */
+
 int main(void)
-
 {
-	char c;
-	int i;
-	long l;
-	long long int k;
-	float f;
-	printf("The size of char is: %lu byte(s)\n", (unsigned long)(sizeof(c)));
-	printf("The size of int is: %lu byte(s)\n", (unsigned long)(sizeof(i)));
-	printf("The size of long is: %lu byte(s)\n", (unsigned long)(sizeof(l)));
-	printf("The size of long long int is: %lu byte(s)\n", (unsigned long)(sizeof(k)));
-	printf("The size of float is: %lu byte(s)\n", (unsigned long)(sizeof(f)));
-	return(0);
+	printf("Size of a char: %zu byte(s)\n", sizeof(char));
+	printf("Size of an int: %zu byte(s)\n", sizeof(int));
+	printf("Size of a long int: %zu byte(s)\n", sizeof(long int));
+	printf("Size of a long long int: %zu byte(s)\n", sizeof(long long int));
+	printf("Size of a float: %zu byte(s)\n", sizeof(float));
+	return (0);
 }
-
