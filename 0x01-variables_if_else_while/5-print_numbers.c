@@ -15,5 +15,6 @@ int main(void)
 	{
 		printf("%d", base_10);
 	}
+	putchar('\n');
 	return (0);
 }
