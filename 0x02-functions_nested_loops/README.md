@@ -1,5 +1,7 @@
-these programs are tests given by ALX to test our knowledge of nested loops in C programming.
-be low are the general rules that guide the students in thachieving these tests
+0x02. C - Functions, nested loops
+
+These programs are tests given by ALX to test our knowledge of nested loops in C programming.
+Below are the general rules that guide the students in thachieving these tests
 Allowed editors: vi, vim, emacs
 All your files will be compiled on Ubuntu 20.04 LTS using gcc, using the options -Wall -Werror -Wextra -pedantic -std=gnu89
 All your files should end with a new line
