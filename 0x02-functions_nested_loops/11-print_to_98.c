@@ -14,18 +14,18 @@ if (z > 98)
 for (; z >= 98; z--)
 {
 printf("%d", z);
-if (n != 98)
+if (z != 98)
 printf(", ");
 else
 printf("\n");
 }
 }
-else if (n < 98)
+else if (z < 98)
 {
-for (; n <= 98; n++)
+for (; z <= 98; z++)
 {
-printf("%d", n);
-if (n != 98)
+printf("%d", z);
+if (z != 98)
 printf(", ");
 else
 printf("\n");
@@ -33,6 +33,6 @@ printf("\n");
 }
 else
 {
-printf("%d\n", n);
+printf("%d\n", z);
 }
 }
