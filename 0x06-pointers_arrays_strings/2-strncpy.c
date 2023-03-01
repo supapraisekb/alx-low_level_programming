@@ -1,4 +1,4 @@
-#include "holberton.h"
+#include "main.h"
 
 /**
  * _strncpy - copy two strings only taking n bytes from src
@@ -10,14 +10,14 @@
 
 char *_strncpy(char *dest, char *src, int n)
 {
-	char *temp = dest;
+char *temp = dest;
 
-	for (; n != 0 && *src != '\0'; n--, src++)
-	{
-		*temp = *src;
-		temp++;
-	}
-	for (; n != 0 && *temp != '\0'; n--, temp++)
-		*temp = '\0';
-	return (dest);
+for (; n != 0 && *src != '\0'; n--, src++)
+{
+*temp = *src;
+temp++;
+}
+for (; n != 0 && *temp != '\0'; n--, temp++)
+*temp = '\0';
+return (dest);
 }
