@@ -1,4 +1,4 @@
-#include "holberton.h"
+#include "main.h"
 
 /**
  * _strncat - concatenates two strings only taking n bytes from src
@@ -10,17 +10,17 @@
 
 char *_strncat(char *dest, char *src, int n)
 {
-	char *temp = dest;
+char *temp = dest;
 
-	for (; *temp != '\0'; temp++)
+for (; *temp != '\0'; temp++)
 		;
-	for (; *src != '\0'; src++)
-	{
-		if (n == 0)
-			break;
-		*temp = *src;
-		temp++;
-		n--;
-	}
-	return (dest);
+for (; *src != '\0'; src++)
+{
+if (n == 0)
+break;
+*temp = *src;
+temp++;
+n--;
+}
+return (dest);
 }
