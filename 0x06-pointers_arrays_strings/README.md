@@ -15,3 +15,5 @@ Task 7 - encode string into 1337
 Task 8 - encode and decode rot13
 task 9 - function that prints an integer using putchar
 Task 10 - add one line to specific code to change a[2] = 98
+Task 11 - Write a function that adds two numbers
+Task 12 - Write a function that prints a buffer.
