@@ -2,10 +2,10 @@
 #include <stdio.h>
 
 /**
- * main - calculator
+ * main - holds the calculator
  * @argc: size of argv
  * @argv: array of arguments
- * Return: answer
+ * Return: Result of the calculation
  */
 
 int main(int argc, char *argv[])

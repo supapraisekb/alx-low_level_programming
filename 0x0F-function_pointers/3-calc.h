@@ -3,10 +3,10 @@
 #include <stdlib.h>
 
 /**
- * struct op - Struct op
+ * struct op - Struct operation
  *
  * @op: The operator
- * @f: The function associated
+ * @f: The function associated with each operation
  */
 typedef struct op
 {
