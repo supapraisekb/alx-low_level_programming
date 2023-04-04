@@ -2,10 +2,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-nclude "lists.h"
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
+
 
 
 /**
@@ -40,7 +37,7 @@ list_t *new_node, *current;
 
 if (head == NULL || str == NULL)
 {
-return NULL;
+return (NULL);
 }
 new_node = malloc(sizeof(list_t));
 if (new_node == NULL)
