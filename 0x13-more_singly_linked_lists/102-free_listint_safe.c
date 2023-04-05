@@ -2,45 +2,46 @@
 #include <stdlib.h>
 
 /**
-* free_listint_safe - Frees a listint_t linked list
-* @h: Pointer to the beginning of the linked list
-* Return: The number of nodes in the list
+* free_listint_safe - function that frees a listint_t linked list
+* @begin: pointer to the beginning of the linked list
+* Return: the number of nodes in the list
 */
-size_t free_listint_safe(listint_t **h)
+size_t free_listint_safe(listint_t **begin)
 {
+int j, flag = 0;
+listint_t *present, *fast, *delete;
 size_t count = 0;
-listint_t *current, *temp;
-if (!h)
-return (0);
-while (*h)
+if (!begin)
+exit(98);
+for (j = 0; *begin && !flag; j++)
 {
-current = *h;
-*h = (*h)->next;
-current->next = NULL;
+present = *begin;
+fast = (*present).next;
+while (present != fast)
+{
+if (present)
+present = (*present).next;
+if (fast)
+fast = (*fast).next;
+if (fast == *begin)
+flag = 1;
+if (fast)
+fast = (*fast).next;
+if (fast == *begin)
+flag = 1;
+}
+delete = *begin;
+*begin = (*delete).next;
+free(delete);
 count++;
-if (current <= current->next)
-{
-free(current);
 }
-else
+while (flag && *begin != fast)
 {
-temp = current->next;
-current->next = NULL;
-free(current);
-while (temp && temp <= temp->next)
-{
+delete = *begin;
 count++;
-current = temp;
-temp = temp->next;
-current->next = NULL;
-free(current);
+*begin = (*delete).next;
+free(delete);
 }
-if (temp)
-{
-count++;
-free(temp);
-}
-}
-}
+*begin = NULL;
 return (count);
 }
