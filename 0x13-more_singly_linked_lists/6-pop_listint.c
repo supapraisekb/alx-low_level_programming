@@ -7,7 +7,8 @@
  *
  * @head: A pointer to a pointer to the head of the list.
  *
-  * Return: The data (n) stored in the head node of the list, or 0 if the list is empty.
+  * Return: The data (n) stored in the head node of the list,
+  *or 0 if the list is empty.
  */
 int pop_listint(listint_t **head)
 {
