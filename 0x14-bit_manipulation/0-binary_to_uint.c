@@ -1,5 +1,6 @@
 #include "main.h"
 #include <unistd.h>
+
 /**
   *binary_to_unit - converts a binary to unsigned int
   *@b: Represents a string containing a binary number
@@ -14,10 +15,11 @@ unsigned int binary_to_uint(const char *b)
 	int len_str;
 
 	if (b == NULL)
+
 		return (0);
 
-	while (b[len_str] != '\0')
-		len_str++;
+	for (len_str = 0; b[len_str]; len_str++)
+		;
 
 	len_str--;
 
