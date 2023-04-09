@@ -1,8 +1,7 @@
 #include "main.h"
-#include <unistd.h>
 
 /**
-  *binary_to_unit - converts a binary to unsigned int
+  *binary_to_uint - converts a binary to unsigned int
   *@b: Represents a string containing a binary number
   *
   *Return: 0 if b in NULL or contains non-binary digits
@@ -14,8 +13,7 @@ unsigned int binary_to_uint(const char *b)
 	unsigned int pwr_two = 1;
 	int len_str;
 
-	if (b == NULL)
-
+	if (!b)
 		return (0);
 
 	for (len_str = 0; b[len_str]; len_str++)
