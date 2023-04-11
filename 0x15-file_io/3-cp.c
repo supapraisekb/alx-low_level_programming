@@ -3,79 +3,91 @@
 #include <stdlib.h>
 
 /**
-* error_check - prints error messages and exits with exit value
-* @error: exit value
-* @filename: filename associated with the error
-* @fd: file descriptor
+* copy_file - copies the contents of one file to another
 *
-* Return: 0 on success, 1 if it fails
+* @source_fd: file descriptor for the file to copy from
+* @dest_fd: file descriptor for the file to copy to
+* @source_file: name of the source file
+* @dest_file: name of the destination file
+*
+* Return: 0 on success, -1 on failure
 */
-void error_check(int error, char *filename, int fd)
+void copy_file(int source_fd, int dest_fd, char *source_file, char *dest_file)
 {
-switch (error)
+ssize_t len_read = 1, len_written = 1;
+char buffer[1024];
+
+while (len_read)
 {
-case 97:
-fprintf(stderr, "Usage: cp file_from file_to\n");
-break;
-case 98:
-fprintf(stderr, "Error: Can't read from file %s\n", filename);
-break;
-case 99:
-fprintf(stderr, "Error: Can't write to file %s\n", filename);
-break;
-case 100:
-fprintf(stderr, "Error: Can't close fd %d\n", fd);
-break;
-default:
-break;
+len_read = read(source_fd, buffer, sizeof(buffer));
+if (len_read == -1)
+{
+dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", source_file);
+close(source_fd);
+close(dest_fd);
+exit(EXIT_FAILURE);
 }
-exit(error);
+
+if (!len_read)
+break;
+
+len_written = write(dest_fd, buffer, len_read);
+if (len_written == -1 || len_written != len_read)
+{
+dprintf(STDERR_FILENO, "Error: Can't write to %s\n", dest_file);
+close(source_fd);
+close(dest_fd);
+exit(EXIT_FAILURE);
+}
+}
 }
 
 /**
-* main - copies the contents of one file to another
-* @argc: the number of command-line arguments
-* @argv: an array of strings containing the command-line arguments
+* main - entry point of the program
 *
-* Return: 0 on success, and a non-zero value on failure.
+* @argc: the number of arguments passed to the program
+* @argv: an array of strings containing the arguments passed to the program
+*
+* Return: 0 on success, 1 on failure
 */
-int main(int argc, char *argv[])
+int main(int argc, char **argv)
 {
-int fd_from, fd_to, n_read, n_written;
-char buffer[1024];
-/* Check that the correct number of command-line arguments were provided */
+int source_fd, dest_fd;
+
 if (argc != 3)
 {
-error_check(97, NULL, 0);
+dprintf(STDERR_FILENO, "Usage: %s file1 file2\n", argv[0]);
+exit(EXIT_FAILURE);
 }
-/* Open the file_from for reading */
-fd_from = open(argv[1], O_RDONLY);
-if (fd_from == -1)
+
+source_fd = open(argv[1], O_RDONLY);
+if (source_fd == -1)
 {
-error_check(98, argv[1], 0);
+dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", argv[1]);
+exit(EXIT_FAILURE);
 }
-/* Open the file_to for writing (truncating if it already exists) */
-fd_to = open(argv[2], O_CREAT | O_WRONLY | O_TRUNC, 0664);
-if (fd_to == -1)
+
+dest_fd = open(argv[2], O_CREAT | O_EXCL | O_WRONLY, 0664);
+if (dest_fd == -1)
+dest_fd = open(argv[2], O_TRUNC | O_WRONLY);
+
+if (dest_fd == -1)
 {
-close(fd_from);
-error_check(99, argv[2], 0);
+dprintf(STDERR_FILENO, "Error: Can't write to %s\n", argv[2]);
+close(source_fd);
+exit(EXIT_FAILURE);
 }
-/* Copy the contents of the file_from to the file_to in 1024-byte chunks */
-while ((n_read = read(fd_from, buffer, 1024)) > 0)
+copy_file(source_fd, dest_fd, argv[1], argv[2]);
+if (close(source_fd) == -1)
 {
-n_written = write(fd_to, buffer, n_read);
-if (n_written == -1 || n_written != n_read)
+dprintf(STDERR_FILENO, "Error: Can't close source file %s\n", argv[1]);
+close(dest_fd);
+exit(EXIT_FAILURE);
+}
+if (close(dest_fd) == -1)
 {
-close(fd_from);
-close(fd_to);
-error_check(99, argv[2], 0);
+dprintf(STDERR_FILENO, "Error: Can't close destination file %s\n", argv[2]);
+exit(EXIT_FAILURE);
 }
-}
-/* Close the file descriptors */
-if (close(fd_from) == -1 || close(fd_to) == -1)
-{
-error_check(100, NULL, 0);
-}
-return (0);
+return (EXIT_SUCCESS);
 }
