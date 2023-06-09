@@ -6,9 +6,14 @@
  * Return: i if succesful
  */
 
-int _abs(int x)
+int _abs(int num)
 {
-if (x < 0)
-x *= -1;
-return (x);
+if (num < 0)
+{
+return(-num);
+}
+else
+{
+return (num);
+}
 }
