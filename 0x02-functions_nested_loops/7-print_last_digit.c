@@ -6,16 +6,16 @@
  * Return: l_d if succesful
  */
 
-int print_last_digit(int x)
+int print_last_digit(int num)
 
 {
-int l_d;
-
-l_d = x % 10;
-if (l_d < 0)
+int last_digit;
+if (num < 0)
 {
-l_d = l_d * -1;
+num *= -1;
 }
-_putchar(l_d + '0');
-return (l_d);
+
+last_digit = num % 10;
+_putchar(last_digit + '0');
+return(last_digit);
 }
