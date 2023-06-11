@@ -1,38 +1,39 @@
 #include "main.h"
 #include <stdio.h>
-
 /**
- * print_to_98 - count to 98
- * @z: variable to determine if input is greater than, less than or is 98
- *
- */
+* print_to_98 - prints all natural numbers from 1-98
+* @num: the numbers to be printed
+*
+* Return: the printed numbers
+*/
+void print_to_98(int num)
+{
+int count;
 
-void print_to_98(int z)
+if (num <= 98)
 {
-if (z > 98)
+for (count = num; count <= 98; count++)
 {
-for (; z >= 98; z--)
+printf("%d", count);
+if (count != 98)
 {
-printf("%d", z);
-if (z != 98)
 printf(", ");
-else
-printf("\n");
 }
 }
-else if (z < 98)
+}
+else if (num >= 98)
 {
-for (; z <= 98; z++)
+for (count = num; count >= 98; count--)
 {
-printf("%d", z);
-if (z != 98)
+printf("%d", count);
+if (count != 98)
+{
 printf(", ");
-else
-printf("\n");
+}
 }
 }
 else
 {
-printf("%d\n", z);
+printf("\n");
 }
 }
