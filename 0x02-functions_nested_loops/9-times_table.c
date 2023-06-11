@@ -1,39 +1,39 @@
 #include "main.h"
-
 /**
- * times_table - prints out the 9 times table, starting with 0
- *
- */
+* times_table - prints the 9 times table
+*
+*/
 
 void times_table(void)
 {
-	int x, y, z, k;
+int row, column, product, temp_storage;
 
-	for (x = 0; x <= 9; x++)
-	{
-		for (y = 0; y <= 9; y++)
-		{
-			z = x * y;
-			if (z == 0 && y == 0)
-				_putchar(z + '0');
-			else if (z > 9)
-			{
-				k = z % 10;
-				z /= 10;
-				_putchar(',');
-				_putchar(' ');
-				_putchar(z + '0');
-				_putchar(k + '0');
-
-			}
-			else
-			{
-				_putchar(',');
-				_putchar(' ');
-				_putchar(' ');
-				_putchar(z + '0');
-			}
-		}
-		_putchar('\n');
-	}
+for (row = 0; row <= 9; row++)
+{
+for (column = 0; column <= 9; column++)
+{
+product = row * column;
+if ((product == 0) && (column == 0))
+{
+_putchar(product + '0');
+}
+else if (product > 9)
+{
+temp_storage = product % 10; /*holds the value of the back character*/
+product /= 10; /* to get the front character */
+_putchar(',');
+_putchar(' ');
+_putchar(product + '0');
+_putchar(temp_storage + '0');
+}
+else
+{
+_putchar(',');
+_putchar(' ');
+_putchar(' ');
+_putchar(product + '0');
+}
+}
+_putchar('\n');
+}
 }
