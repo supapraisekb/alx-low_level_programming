@@ -29,12 +29,12 @@ char *str_concat(char *s1, char *s2)
 	if (!p)
 		return (NULL);
 
-	for (z = 0; z <= (len_1 + len_2); z++)
+	for (z = 0; z < (len_1 + len_2); z++)
 	{
 		if (z < len_1)
 			p[z] = s1[z];
 		else
-			p[x] = s2[z - len_1];
+			p[z] = s2[z - len_1];
 	}
 
 	return (p);
