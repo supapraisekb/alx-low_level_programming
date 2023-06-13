@@ -24,7 +24,7 @@ char *str_concat(char *s1, char *s2)
 		for (; s2[len_2]; len_2++)
 			;
 	len_2++;
-	ptr = malloc((len_1 + len_2) * sizeof(char));
+	p = malloc((len_1 + len_2) * sizeof(char));
 
 	if (!p)
 		return (NULL);
@@ -34,7 +34,7 @@ char *str_concat(char *s1, char *s2)
 		if (z < len_1)
 			p[z] = s1[z];
 		else
-			ptr[x] = s2[z - len_1];
+			p[x] = s2[z - len_1];
 	}
 
 	return (p);
