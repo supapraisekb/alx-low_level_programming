@@ -18,7 +18,7 @@ for (length = 0; str[length]; length++)
 ;
 
 length++;
-p = malloc(length * sizeof(char));
+p = malloc(length *sizeof(char));
 
 if (!p)
 return (NULL);
