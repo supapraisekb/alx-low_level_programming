@@ -3,28 +3,28 @@
 
 /**
  * _strdup - copy the string given to a newly allocated space in memory
- * @str: string to copy
+ * @strn: string to copy
  * Return: returns a pointer to the copy, or NULL if it fails
  */
 
-char *_strdup(char *str)
+char *_strdup(char *strn)
 {
-	char *ptr;
-	unsigned int x, len;
+	char *p;
+	unsigned int z, length;
 
-	if (!str)
+	if (!strn)
 		return (NULL);
 
-	for (len = 0; str[len]; len++)
+	for (length = 0; strn[length]; length++)
 		;
-	len++;
-	ptr = malloc(len * sizeof(char));
+	length++;
+	p = malloc(len * sizeof(char));
 
-	if (!ptr)
+	if (!p)
 		return (NULL);
 
-	for (x = 0; x <= len; x++)
-		ptr[x] = str[x];
+	for (z = 0; z <= length; x++)
+		p[z] = strn[z];
 
-	return (ptr);
+	return (p);
 }
