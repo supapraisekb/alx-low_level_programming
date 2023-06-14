@@ -32,7 +32,7 @@ return (NULL);
 }
 for (u = 0; u < height; u++)
 {
-for ( v = 0; v < width; v++)
+for (v = 0; v < width; v++)
 grid_funct[u][v] = 0;
 }
 return (grid_funct);
