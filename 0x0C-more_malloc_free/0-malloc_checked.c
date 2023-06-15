@@ -6,14 +6,14 @@
  * Return: void pointer if succesfull, exits with a status value of 98 if fails
  */
 
-void *malloc_checked(unsigned int b)
+void *malloc_checked(unsigned int c)
 {
-	void *ptr;
+	void *p;
 
-	ptr = malloc(b);
+	p = malloc(c);
 
-	if (!ptr)
+	if (p == NULL)
 		exit(98);
 
-	return (ptr);
+	return (p);
 }
