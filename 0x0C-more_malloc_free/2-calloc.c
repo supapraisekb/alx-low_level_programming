@@ -20,7 +20,7 @@ void *_calloc(unsigned int nmemb, unsigned int size)
 	if (!p)
 		return (NULL);
 
-	for (count = 0; count < nmemb * size; count++ )
+	for (count = 0; count < nmemb * size; count++)
 		((char *) p)[count] = 0;
 
 	return (p);
