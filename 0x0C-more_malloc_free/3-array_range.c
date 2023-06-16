@@ -8,20 +8,20 @@
  * Return: the pointer to the newly created array or NULL if it fails
  */
 
-int *array_range(int min, int max)
+int *array_range(int minimum, int maximum)
 {
-	int *ptr, i;
+	int *p, count;
 
 	if (min > max)
 		return (NULL);
 
-	ptr = malloc(((max - min) + 1) * sizeof(int));
+	p = malloc(((max - min) + 1) * sizeof(int));
 
-	if (!ptr)
+	if (!p)
 		return (NULL);
 
-	for (i = 0; (min + i) <= max; i++)
-		ptr[i] = (min + i);
+	for (count = 0; (min + count) <= max; count++)
+		p[count] = (min + count);
 
-	return (ptr);
+	return (p);
 }
