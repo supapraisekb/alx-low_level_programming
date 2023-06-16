@@ -3,43 +3,43 @@
 
 /**
  * string_nconcat - concat two strings to n bytes
- * @s1: first string
- * @s2: second string
- * @n: number of bytes to concat of string 2
+ * @str1: first string
+ * @str2: second string
+ * @z: number of bytes to concat of string 2
  * Return: pointer to concatenated string or NULL if it fails
  */
 
-char *string_nconcat(char *s1, char *s2, unsigned int n)
+char *string_nconcat(char *str1, char *str2, unsigned int z)
 {
-	char *ptr;
+	char *p;
 	unsigned int i, len1, len2;
 
-	if (!s1)
-		s1 = "";
-	if (!s2)
-		s2 = "";
+	if (!str1)
+		str1 = " ";
+	if (!str2)
+		str2 = " ";
 
-	for (len1 = 0; *(s1 + len1); len1++)
+	for (len1 = 0; *(str1 + len1); len1++)
 		;
-	for (len2 = 0; *(s2 + len2); len2++)
+	for (len2 = 0; *(str2 + len2); len2++)
 		;
 
-	if (len2 < n)
-		n = len2;
+	if (len2 < z)
+		z = len2;
 
-	ptr = malloc((len1 + n + 1) * sizeof(char));
+	p = malloc((len1 + z + 1) * sizeof(char));
 
-	if (!ptr)
+	if (!p)
 		return (NULL);
 
-	for (i = 0; i < (len1 + n); i++)
+	for (i = 0; i < (len1 + z); i++)
 	{
 		if (i < len1)
-			ptr[i] = s1[i];
+			p[i] = str1[i];
 		else
-			ptr[i] = s2[i - len1];
+			p[i] = str2[i - len1];
 	}
-	ptr[i] = '\0';
+	p[i] = '\0';
 
-	return (ptr);
+	return (p);
 }
