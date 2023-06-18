@@ -2,15 +2,15 @@
 
 /**
  * swap_int - swap to value pointers
- * @a: first variable to swap
- * @b: second variable to swap
+ * @x: first variable to swap
+ * @y: second variable to swap
  */
 
-void swap_int(int *a, int *b)
+void swap_int(int *x, int *y)
 {
-int temp;
+int hold_x;
 
-temp = *a;
-*a = *b;
-*b = temp;
+hold_x = *x;
+*x = *y;
+*y = hold_x;
 }
