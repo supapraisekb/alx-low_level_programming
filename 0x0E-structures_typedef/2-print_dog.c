@@ -6,19 +6,20 @@
  * @d: struct dog pointer
  */
 
-void print_dog(struct dog *d)
+void print_dog(struct dog *dodge)
+
 {
 	char *name, *owner;
 
-	if (d)
+	if (dodge)
 	{
-		name = d->name;
-		owner = d->owner;
+		name = dodge->name;
+		owner = dodge->owner;
 
 		if (!name)
 			name = "(nil)";
 		if (!owner)
 			owner = "(nil)";
-		printf("Name: %s\nAge: %f\nOwner: %s\n", name, d->age, owner);
+		printf("Name: %s\nAge: %f\nOwner: %s\n", name, dodge->age, owner);
 	}
 }
