@@ -8,12 +8,12 @@
  * @owner: label for the dog's owner
  */
 
-void init_dog(struct dog *d, char *name, float age, char *owner)
+void init_dog(struct dog *dodge, char *name, float age, char *owner)
 {
-	if (d)
+	if (dodge)
 	{
-		d->name = name;
-		d->age = age;
-		d->owner = owner;
+		dodge->name = name;
+		dodge->age = age;
+		dodge->owner = owner;
 	}
 }
