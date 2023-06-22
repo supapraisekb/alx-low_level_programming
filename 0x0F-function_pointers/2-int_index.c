@@ -13,7 +13,7 @@ int int_index(int *int_array, int arr_size, int (*cmp_ptr)(int))
 	int i;
 
 	if (int_array != NULL && cmp_ptr != NULL && arr_size > 0)
-		for (i = 0; i < size; i++)
+		for (i = 0; i < arr_size; i++)
 			if (cmp_ptr(int_array[i]))
 				return (i);
 	return (-1);
