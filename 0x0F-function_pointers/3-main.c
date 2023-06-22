@@ -2,7 +2,7 @@
 #include <stdio.h>
 
 /**
- * main - holds the calculator
+ * main - the calculation
  * @argc: size of argv
  * @argv: array of arguments
  * Return: Result of the calculation
@@ -12,7 +12,7 @@ int main(int argc, char *argv[])
 {
 	if (argc != 4)
 	{
-		printf("Error\n");
+		printf("Wrong input format\n");
 		exit(98);
 	}
 

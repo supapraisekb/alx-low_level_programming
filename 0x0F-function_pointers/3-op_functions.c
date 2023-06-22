@@ -2,61 +2,62 @@
 #include <stdio.h>
 
 /**
- * op_add - sum of a and b
- * @a: integer to add
- * @b: integer to add
+ * calc_ops_add - sum of num1, num2
+ * @num1: first number to add
+ * @num2: second number to add
  * Return: sum if succesful
  */
 
-int op_add(int a, int b)
+int calc_ops_add(int num1, int num2)
 {
-	return ((a) + (b));
+	return ((num1) + (num2));
 }
 /**
- * op_sub - difference of a and b
- * @a: integer to subtract
- * @b: integer to subtract
- * Return: difference if succesful
+ * calc_ops_sub - difference btw num1 and num2
+ * @num1: 1st number to subtact
+ * @num2: 2nd number to subtract
+ * Return: difference between the numbers
  */
-int op_sub(int a, int b)
+int calc_ops_sub(int num1, int num2)
 {
-	return ((a) - (b));
+	return ((num1) - (num2));
 }
 /**
- * op_mul - multiply a and b
- * @a: integer to multiply
- * @b: integer to multiply
- * Return: multiplication of a and b if succesful
+ * calc_ops_mul - function to multiply a and b
+ * @num1: 1st number to multiply
+ * @num2: 2nd number to multiply
+ * Return: product of the the two numbers
  */
-int op_mul(int a, int b)
+int calc_ops_mul(int num1, int num2)
 {
-	return ((a) * (b));
+	return ((num1) * (num2));
 }
 /**
- * op_div - divides a and b
- * @a: integer to divide
- * @b: integer to divide
- * Return: division if succesful
+ * calc_ops_div - divides num1 and num2
+ * @num1: dividend
+ * @num2: divisor
+ * Return: quotient if successful
  */
-int op_div(int a, int b)
+int calc_ops_div(int num1, int num2)
 {
-	if (!b)
+	if (num2 == 0)
 	{
-		printf("Error\n");
+		printf("Enter a non-zero number\n");
 		exit(100);
 	}
-	return ((a) / (b));
+	return ((num1) / (num2));
 }
 /**
- * op_mod - Module of a and b
- * @a: integer
- * @b: integer
- * Return: remainder if succesful
+ * calc_ops_mod - Modulus of num1 and num2
+ * @num1: dividend
+ * @num2: divisor
+ * Return: the remainder of the division
  */
-int op_mod(int a, int b)
+int calc_ops_mod(int num1, int num2)
 {
-	if (b)
-		return ((a) % (b));
-	printf("Error\n");
+	if (num2 > 0)
+		return ((num1) % (num2));
+
+	printf("Enter a non-zero number\n");
 	exit(100);
 }
