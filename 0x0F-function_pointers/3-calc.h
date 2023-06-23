@@ -3,22 +3,22 @@
 #include <stdlib.h>
 
 /**
- * struct calc_ops - Struct operation
+ * struct op - Struct operation
  *
- * @calc_ops: The operator
+ * @op: The operator
  * @fun_calc: The function of each operation
  */
-typedef struct calc_ops
+typedef struct op
 {
-	char *calc_ops;
+	char *op;
 	int (*fun_calc)(int num1, int num2);
-} calc_t;
+} op_t;
 
-int calc_ops_add(int num1, int num2);
-int calc_ops_sub(int num1, int num2);
-int calc_ops_mul(int num1, int num2);
-int calc_ops_div(int num1, int num2);
-int calc_ops_mod(int num1, int num2);
+int op_add(int num1, int num2);
+int op_sub(int num1, int num2);
+int op_mul(int num1, int num2);
+int op_div(int num1, int num2);
+int op_mod(int num1, int num2);
 int (*get_op_func(char *s))(int, int);
 
 #endif /*CALC_H*/

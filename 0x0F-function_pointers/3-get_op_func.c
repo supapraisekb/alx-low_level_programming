@@ -8,23 +8,21 @@
  * Return: pointer to function
  */
 
-int (*get_op_func(char *s))(int num1, int num2)
+int (*get_op_func(char *s))(int, int)
 {
-	calc_t calc_ops[] = {
-		{"+", calc_ops_add},
-		{"-", calc_ops_sub},
-		{"*", calc_ops_mul},
-		{"/", calc_ops_div},
-		{"%", calc_ops_mod},
+	op_t ops[] = {
+		{"+", op_add},
+		{"-", op_sub},
+		{"*", op_mul},
+		{"/", op_div},
+		{"%", op_mod},
 		{NULL, NULL}
 	};
-	int i = 0;
+	int k = 0;
 
-	while (calc_ops[i].calc_ops)
-	{
-		if (strcmp(s, calc_ops[i].calc_ops) == 0)
-			return (calc_ops[i].fun_calc);
-		i++;
-	}
-	return (calc_ops[i].fun_calc);
+	while (ops[k].op && strcmp(s, ops[k].op) != 0)
+
+		k++;
+
+	return (ops[k].fun_calc);
 }
