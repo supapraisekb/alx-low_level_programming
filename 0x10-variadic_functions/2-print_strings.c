@@ -22,12 +22,10 @@ if (output_str != NULL)
 printf("%s", output_str);
 else
 printf("nil");
-
-if ((separator != NULL) && (index < n - 1))
+if (separator != NULL && index != (n - 1))
 printf("%s", separator);
 }
-
 printf("\n");
 
-va_end(args);
+va_end(list_of_args);
 }
