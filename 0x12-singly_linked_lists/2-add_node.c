@@ -3,25 +3,6 @@
 #include <stdlib.h>
 #include <string.h>
 
-
-/**
-* _strlen - Returns the length of a string.
-*
-* @str: The string to be measured.
-*
-* Return: The length of the string.
-*/
-int _strlen(const char *str)
-{
-int len = 0;
-
-while (str[len] != '\0')
-{
-len++;
-}
-return (len);
-}
-
 /**
 * add_node - Adds a new node at the beginning of a list_t list
 * @head: Pointer to a pointer to the head of the list
@@ -32,26 +13,26 @@ return (len);
 
 list_t *add_node(list_t **head, const char *str)
 {
-list_t *new_node;
+list_t *added;
 
 if (head == NULL || str == NULL)
 {
 return (NULL);
 }
-new_node = malloc(sizeof(list_t));
-if (new_node == NULL)
+added = malloc(sizeof(list_t));
+if (added == NULL)
 {
 return (NULL);
 }
 
-new_node->str = strdup(str);
-if (new_node->str == NULL)
+added->str = strdup(str);
+if (added->str == NULL)
 {
-free(new_node);
+free(added);
 return (NULL);
 }
-new_node->len = strlen(str);
-new_node->next = *head;
-*head = new_node;
-return (new_node);
+added->len = strlen(str);
+added->next = *head;
+*head = added;
+return (added);
 }
