@@ -3,27 +3,6 @@
 #include <stdlib.h>
 #include <string.h>
 
-
-
-/**
-* _strlen - Returns the length of a string.
-*
-* @str: The string to be measured.
-*
-* Return: The length of the string.
-*/
-int _strlen(const char *str)
-{
-
-int len = 0;
-while (str[len] != '\0')
-{
-len++;
-}
-return (len);
-}
-
-
 /**
 * add_node_end - Adds a new node at the end of a list
 * @head: Pointer to a pointer to the head of the list
@@ -33,28 +12,28 @@ return (len);
 */
 list_t *add_node_end(list_t **head, const char *str)
 {
-list_t *new_node, *current;
+list_t *add_end, *current;
 
-if (head == NULL || str == NULL)
+if (!head || str == NULL)
 {
 return (NULL);
 }
-new_node = malloc(sizeof(list_t));
-if (new_node == NULL)
+add_end = malloc(sizeof(list_t));
+if (add_end == NULL)
 {
 return (NULL);
 }
-new_node->str = strdup(str);
-if (new_node->str == NULL)
+add_end->str = strdup(str);
+if (add_end->str == NULL)
 {
-free(new_node);
+free(add_end);
 return (NULL);
 }
-new_node->len = strlen(str);
-new_node->next = NULL;
+add_end->len = strlen(str);
+add_end->next = NULL;
 if (*head == NULL)
 {
-*head = new_node;
+*head = add_end;
 }
 else
 {
@@ -63,7 +42,8 @@ while (current->next != NULL)
 {
 current = current->next;
 }
-current->next = new_node;
+current->next = add_end;
 }
-return (new_node);
+return (add_end);
 }
+
