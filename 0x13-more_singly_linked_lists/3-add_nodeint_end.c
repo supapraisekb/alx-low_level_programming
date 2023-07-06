@@ -3,8 +3,8 @@
 /**
  * add_nodeint_end - Adds a new node at the end of a listint_t list.
  *
- * @head: A pointer to a pointer to the head of the list.
- * @n: The integer value to store in the new node.
+ * @head: A pointer indicating the first node.
+ * @n: The integer value added to the node
  *
  * Return: On success, the address of the new element. On failure, NULL.
  */
