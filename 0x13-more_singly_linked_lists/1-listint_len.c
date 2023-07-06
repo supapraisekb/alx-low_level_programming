@@ -10,12 +10,12 @@
  */
 size_t listint_len(const listint_t *head)
 {
-size_t lenCount = 0;
+size_t items_Count = 0;
 
 while (head != NULL)
 {
-lenCount++;
+items_Count++;
 head = head->next;
 }
-return (lenCount);
+return (items_Count);
 }
