@@ -10,7 +10,7 @@
 unsigned int binary_to_uint(const char *b)
 {
 	unsigned int converted_num = 0;
-	unsigned int pwr_two = 1;
+	unsigned int pwr_2 = 1;
 	int len_str;
 
 	if (!b)
@@ -26,8 +26,8 @@ unsigned int binary_to_uint(const char *b)
 		if (b[len_str] != '0' && b[len_str] != '1')
 			return (0);
 
-		converted_num += (b[len_str--] - '0') * pwr_two;
-		pwr_two *= 2;
+		converted_num += (b[len_str--] - '0') * pwr_2;
+		pwr_2 *= 2;
 	}
 	return (converted_num);
 }
