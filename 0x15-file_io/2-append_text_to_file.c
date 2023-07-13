@@ -26,7 +26,7 @@ if (text_content != NULL)
 for (text_contlen = 0; text_content[text_contlen]; text_contlen++)
 ;
 /* Write the text content to the end of the file */
-wBytes = write(file_D, text_content, text_contlen);
+wBytes = write(file_D, text_content, text_contlen)
 if (wBytes == -1 || wBytes != text_contlen)
 {
 close(file_D);
