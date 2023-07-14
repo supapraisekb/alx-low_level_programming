@@ -25,10 +25,10 @@ if (len_read == -1)
 dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", source_file);
 close(source_fd);
 close(dest_fd);
-exit(EXIT_FAILURE);
+exit(98);
 }
 
-if (!len_read)
+if (len_read == NULL)
 break;
 
 len_written = write(dest_fd, buffer, len_read);
@@ -37,7 +37,7 @@ if (len_written == -1 || len_written != len_read)
 dprintf(STDERR_FILENO, "Error: Can't write to %s\n", dest_file);
 close(source_fd);
 close(dest_fd);
-exit(EXIT_FAILURE);
+exit(99);
 }
 }
 }
@@ -57,14 +57,14 @@ int source_fd, dest_fd;
 if (argc != 3)
 {
 dprintf(STDERR_FILENO, "Usage: %s file1 file2\n", argv[0]);
-exit(EXIT_FAILURE);
+exit(97);
 }
 
 source_fd = open(argv[1], O_RDONLY);
 if (source_fd == -1)
 {
 dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", argv[1]);
-exit(EXIT_FAILURE);
+exit(98);
 }
 
 dest_fd = open(argv[2], O_CREAT | O_EXCL | O_WRONLY, 0664);
@@ -75,19 +75,19 @@ if (dest_fd == -1)
 {
 dprintf(STDERR_FILENO, "Error: Can't write to %s\n", argv[2]);
 close(source_fd);
-exit(EXIT_FAILURE);
+exit(99);
 }
 copy_file(source_fd, dest_fd, argv[1], argv[2]);
 if (close(source_fd) == -1)
 {
 dprintf(STDERR_FILENO, "Error: Can't close source file %s\n", argv[1]);
 close(dest_fd);
-exit(EXIT_FAILURE);
+exit(100);
 }
 if (close(dest_fd) == -1)
 {
 dprintf(STDERR_FILENO, "Error: Can't close destination file %s\n", argv[2]);
-exit(EXIT_FAILURE);
+exit(100);
 }
-return (EXIT_SUCCESS);
+return (0);
 }
