@@ -28,7 +28,7 @@ close(dest_fd);
 exit(98);
 }
 
-if (len_read == NULL)
+if (!len_read)
 break;
 
 len_written = write(dest_fd, buffer, len_read);
